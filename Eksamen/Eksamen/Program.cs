@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace Eksamen
 {
+    /// <summary>
+    /// Main program
+    /// </summary>
     class Program
     {
         public static Varibles v = new Varibles();
@@ -116,18 +119,28 @@ namespace Eksamen
 
         }
 
-        //Bruger funktioner til at printe
+        /// <summary>
+        /// Printer på den nuværende linje
+        /// </summary>
+        /// <param name="text">Texten den skal printe</param>
         public static void PrintLine(string text)
         {
             Console.Write(text);
         }
 
+        /// <summary>
+        /// Printer og skifter linje
+        /// </summary>
+        /// <param name="text">Teskten den skal printe</param>
         public static void Print(string text)
         {
             Console.WriteLine(text);
         }
 
-        //Bruger funktioner til at tjekke om det er int eller float
+        /// <summary>
+        /// Reader int, og chekcer om det er en korrekt int, brugeren har indtastet
+        /// </summary>
+        /// <returns>Int værdi</returns>
         public static int ReadInt()
         {
             int nummer;
@@ -147,6 +160,10 @@ namespace Eksamen
 
         }
 
+        /// <summary>
+        /// Reader float, og checker om det er gyldigt input
+        /// </summary>
+        /// <returns>Float værdi</returns>
         public static float ReadFloat()
         {
             float nummer;
@@ -165,11 +182,11 @@ namespace Eksamen
             return nummer;
 
         }
-        //------------------------------------------------------------------//
 
-        //Finder farven ved at generere et tilfældigt tal, og så derefter igennem if statements
-        //siger at 8 og derunder er rød, 10 og derover er sort og 9 er grøn
-        //Bare for at gøre grøn lidt mere "sjælen"
+        /// <summary>
+        /// Genere den randomme farve.
+        /// </summary>
+        /// <param name="color">Skal bruge et bool array til at gemme farven</param>
         public static void RandomColor(bool[] color)
         {
             Random rnd = new Random();
@@ -189,8 +206,11 @@ namespace Eksamen
             }
         }
 
-        //Tjeker for at se om den farve brugeren har indsat en værdi er vinderen
-        //Igennen en håndfuld ifstatements og et lille forloop
+        /// <summary>
+        /// Checker om spilleren har vundet, ved at bruge den randomme color og Arrayet med bets i.
+        /// </summary>
+        /// <param name="bet">Float array, som indeholder bets</param>
+        /// <param name="color">Bool array, som inderholde den randomme farve</param>
         public static void CheckWin(float[] bet, bool[] color)
         {
             for(int i = 0; i < 2; i++)
@@ -211,7 +231,13 @@ namespace Eksamen
                 v.money = v.money + bet[2];
             }
         }
-        //Indsætter værdien brugeren har sat på den såkaldte farve, ved at gemme det i et array
+        
+        /// <summary>
+        /// Sætter dit bet på den valgte farve
+        /// </summary>
+        /// <param name="color">Farve, som skal bettes på</param>
+        /// <param name="bet">Skal bruge et array med 3 pladser til at gemme bettet i</param>
+        /// <param name="amount">Hvor meget brugeren ønsker at bette på den såkaldte farve</param>
         public static void PlaceBet(string color, float[] bet, float amount)
         {
             //Print("Hvor maget vil du gerne bette på den farve");
@@ -233,7 +259,14 @@ namespace Eksamen
             }
         }
 
-        //nulstiller alle værdier bortset for brugerens currentcy.
+        /// <summary>
+        /// Nulstiller brugerens verdier, sådan at han kan spille igen
+        /// </summary>
+        /// <param name="color">Bool array, hvor alle værdier bliver sat til false</param>
+        /// <param name="bet">Float array, hvor alle værdier bliver sat til 0</param>
+        /// <param name="currentbet">Sætter current bet til 0</param>
+        /// <param name="userinput">Sætter user input til true</param>
+        /// <param name="insertmoney">Sætter inserMoney til true</param>
         public static void Nulstil(bool[] color, float[] bet, float currentbet, bool userinput, bool insertmoney)
         {
             for(int i = 0; i < 2; i++)
@@ -251,7 +284,9 @@ namespace Eksamen
 
     }
 
-    //class for alle mine variabler
+    /// <summary>
+    /// Class hvor alle mine variabler bliver gemt i.
+    /// </summary>
     class Varibles
     {
         public float money;
